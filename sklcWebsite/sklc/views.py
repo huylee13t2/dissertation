@@ -4,9 +4,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login as auth_login
 
-from .forms import SignUpForm, LoginForm
+from .forms import SignUpForm
 
 def index(request):
+	# Check your logged-in account
 	if request.user.is_authenticated:
 		return render(request, 'index.html', {})
 	else:
@@ -14,11 +15,14 @@ def index(request):
 
 
 def  register(request):
+	# check submit register when click button register
 	if request.method == 'POST':
 		form = SignUpForm(request.POST)
+		# check valid form
 		if form.is_valid():
-			print('yes')
+			# create account on table User django use function save()
 			form.save()
+			# After successful register, use redirect to switch to login page
 			return redirect('login')
 	else:
 		form = SignUpForm()
@@ -27,25 +31,15 @@ def  register(request):
 
 @csrf_exempt
 def login(request):
+	# check submit login
 	if request.method == 'POST':
 		print('===> post')
 		username = request.POST['username']
 		password = request.POST['password']
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
+			# function login of django
 			auth_login(request, user)
-			print('===> login')
+			# After successful login, use redirect to switch to home page
 			return redirect('/')
-		# username = request.POST.get('username')
-		# password = request.POST.get('password')
-		# user = authenticate(request, username=username, password=password)
-		# print(user)
-		# if user.check_password(password):
-		# 	print('===> OK')
-		# if user is not None:
-		# 	print('====> asdasd')
-		# 	# login(request, user)
-		# 	# return redirect('/')
-	else:
-		form = LoginForm()
 	return render(request, 'auth/login.html', {})

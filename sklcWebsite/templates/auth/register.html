@@ -5,7 +5,9 @@
 <div class="content__register">
 	<form class="form__register" method="post" action="{% url 'login' %}" >
 		<h3 class="title">Sign up</h3>
+		<!-- add token on form -->
 		{% csrf_token %}
+		<!-- render field of form form SignUpForm -->
 		{% for field in form %}
 			<div class="form-group form_component">
 				<label>{{ field.label_tag }}</label>
