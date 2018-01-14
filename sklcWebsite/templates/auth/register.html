@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content__register">
+	<form class="form__register" method="post" action="{% url 'login' %}" >
+		<h3 class="title">Sign up</h3>
+		{% csrf_token %}
+		{% for field in form %}
+			<div class="form-group form_component">
+				<label>{{ field.label_tag }}</label>
+				{{ field }}
+
+				{% for error in field.errors %}
+					<p style="color: red">{{ error }}</p>
+				{% endfor %}
+			</div>
+		{% endfor %}
+		<div class="form-group action">
+			<button class="btn btn-primary">Sign up</button>
+			<a href="{% url 'login' %}">Go to login</a>
+		</div>
+	</form>
+</div>
+	
+{% endblock %}

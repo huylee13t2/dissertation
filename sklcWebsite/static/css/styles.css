@@ -1,0 +1,85 @@
+body{
+	background: #f8f8f8;
+}
+/* header */
+.headerContainer{
+	width: 100%;
+	overflow: hidden;
+	background: #31708f;
+	color: #fff;
+}
+.bavBar{
+	background: #31708f;
+	color: #fff;
+	border: none;
+	border-radius: 0;
+}
+#logo{
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+}
+#logo >span{
+
+}
+/*=== end header ===*/
+
+/*========== content =============*/
+.contentContainer{
+	margin-top: 50px;
+	width : 100%;
+	overflow: hidden;
+	padding: 15px 0;
+}
+/*---- register -----*/
+.content__register{
+	width: 350px;
+	margin: 60px auto;
+	padding: 30px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+.form__register{
+
+}
+.form__register .title{
+	margin: 0;
+	font-weight: bold;
+	font-style: 24px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.form__register .action{
+	overflow: hidden;
+}
+.form__register .action >a{
+	float: right;
+	text-decoration: underline;
+	padding: 7px 0;
+}
+.form__register .form_component{
+
+}
+.form__register .form_component input{
+	padding: 7px 12px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	width: 100%;
+}
+
+/*---- end register ----*/
+/*============ end content ===========*/
+
+/* footer */
+.footerContainer{
+	background: #31708f;
+	color: #fff;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
+.footer{
+	padding: 15px 0;
+}
+/*=== end footer ===*/
